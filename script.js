@@ -182,16 +182,16 @@ const qsa = (s, el=document) => [...el.querySelectorAll(s)];
     ctx.clearRect(0,0,w,h);
     // subtle gradient backdrop overlay for depth hue
     const g = ctx.createLinearGradient(0,0,w,h);
-    g.addColorStop(0,'rgba(0,229,255,0.06)');
-    g.addColorStop(1,'rgba(181,23,255,0.06)');
+    g.addColorStop(0,'rgba(184,146,255,0.04)');
+    g.addColorStop(1,'rgba(110,243,214,0.04)');
     ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
 
     for(const s of stars){
       s.x -= s.vx * 0.3; if(s.x < -10) s.x = w + Math.random()*20;
       const parX = s.x + tiltX * (s.z*6); const parY = s.y + tiltY * (s.z*6);
       ctx.beginPath();
-      const hue = s.z === 1 ? 180 : s.z === 2 ? 265 : 200;
-      ctx.fillStyle = `hsla(${hue}, 100%, 70%, ${0.35 + s.z*0.12})`;
+      const hue = s.z === 1 ? 210 : s.z === 2 ? 275 : 160;
+      ctx.fillStyle = `hsla(${hue}, 80%, 78%, ${0.22 + s.z*0.10})`;
       ctx.arc(parX, parY, s.r + s.z*0.2, 0, Math.PI*2);
       ctx.fill();
     }
@@ -246,9 +246,9 @@ const qsa = (s, el=document) => [...el.querySelectorAll(s)];
     const min = now.getMinutes() + sec/60;
     const hr = (now.getHours()%12) + min/60;
 
-    ring(hr/12, R*0.55, R*0.78, '#00e5ff', '#b517ff');
-    ring(min/60, R*0.35, R*0.52, '#b517ff', '#6a00f4');
-    ring(sec/60, R*0.18, R*0.30, '#31f5ff', '#00e5ff');
+    ring(hr/12, R*0.55, R*0.78, '#a8c7fa', '#b892ff');
+    ring(min/60, R*0.35, R*0.52, '#b892ff', '#6ef3d6');
+    ring(sec/60, R*0.18, R*0.30, '#ffd1dc', '#a8c7fa');
 
     // center cap
     ctx.fillStyle = '#e6f1ff';
